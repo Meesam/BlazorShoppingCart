@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.Web", "BlazorShoppingCart.Web\BlazorShoppingCart.Web.csproj", "{0F0985A3-0C10-4380-8561-D3BBE0162922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.Web", "BlazorShoppingCart.Web\BlazorShoppingCart.Web.csproj", "{0F0985A3-0C10-4380-8561-D3BBE0162922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.Models", "BlazorShoppingCart.Models\BlazorShoppingCart.Models.csproj", "{835306E8-29F6-4FF8-92A8-E0E5FFC84297}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.Models", "BlazorShoppingCart.Models\BlazorShoppingCart.Models.csproj", "{835306E8-29F6-4FF8-92A8-E0E5FFC84297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.DataAccess", "BlazorShoppingCart.DataAccess\BlazorShoppingCart.DataAccess.csproj", "{06CD8A75-C1D4-4FF1-A353-9A595D242D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.DataAccess", "BlazorShoppingCart.DataAccess\BlazorShoppingCart.DataAccess.csproj", "{06CD8A75-C1D4-4FF1-A353-9A595D242D08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.EmailService", "BlazorShoppingCart.EmailService\BlazorShoppingCart.EmailService.csproj", "{A04C8252-A60A-4A19-B9E3-FDA4DF8DBC24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.EmailService", "BlazorShoppingCart.EmailService\BlazorShoppingCart.EmailService.csproj", "{A04C8252-A60A-4A19-B9E3-FDA4DF8DBC24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.PaymentService", "BlazorShoppingCart.PaymentService\BlazorShoppingCart.PaymentService.csproj", "{A087BD88-E0D1-4302-B685-8D8148AF3175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.PaymentService", "BlazorShoppingCart.PaymentService\BlazorShoppingCart.PaymentService.csproj", "{A087BD88-E0D1-4302-B685-8D8148AF3175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

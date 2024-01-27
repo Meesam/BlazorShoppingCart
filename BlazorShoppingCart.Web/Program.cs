@@ -1,10 +1,22 @@
+using BlazorShoppingCart.DataAccess;
+using BlazorShoppingCart.Models;
 using BlazorShoppingCart.Web.Components;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddSyncfusionBlazor();
+
+builder.Services.AddDbContext<ShoppingCartContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<ShoppingCartContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -20,6 +32,8 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

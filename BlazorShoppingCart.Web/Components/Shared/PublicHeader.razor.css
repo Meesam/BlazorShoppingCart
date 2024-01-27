@@ -1,0 +1,30 @@
+﻿.header-container {
+    display: flex;
+    align-items: center;
+    background-color: #CCC;
+    padding: 1em 4em;
+}
+
+    .header-container .left ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+   .header-container .left ul li {
+        list-style: none;
+    }
+
+    .header-container .right {
+        margin-left:auto;
+    }
+
+    .header-container .right ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+        .header-container .right ul li {
+            list-style: none;
+        }
