@@ -1,13 +1,15 @@
 {
   "scripts": {
-
     "tw:dev": "npx tailwindcss -i ./wwwroot/styles/input.css -o ./wwwroot/styles/output.css",
-
     "tw:dev-watch": "npx tailwindcss -i ./wwwroot/styles/input.css -o ./wwwroot/styles/output.css --watch"
-
   },
-
   "devDependencies": {
     "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.17",
+    "flowbite": "^2.2.1",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0"
   }
 }

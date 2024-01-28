@@ -1,0 +1,53 @@
+﻿@page "/register"
+
+<div class="flex h-screen justify-center items-center">
+    <div class="flex flex-col bg-neutral-100 w-[30rem] h-auto p-10 rounded-lg justify-center">
+        <p class="text-2xl font-semibold text-center text-neutral-500">Register</p>
+        <form method="post">
+            <div class="flex flex-col space-y-4">
+                <div class="flex flex-col space-y-1">
+                    <label class="text-sm text-neutral-500" >Name</label>
+                    <input class="p-2 rounded-md border text-sm text-neutral-500" type="text" asp-for="Name" />
+                    <span class="text-xs text-red-400"></span>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label class="text-sm text-neutral-500">
+                        Email
+                    </label>
+                    <input class="p-2 rounded-md border text-sm text-neutral-500" type="email"  />
+                    <span class="text-xs text-red-400"></span>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label class="text-sm text-neutral-500" asp-for="DateOfBirth">
+                        Dob
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                            </svg>
+                        </div>
+                        <input type="date"  class="bg-white border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select Dob">
+                    </div>
+                    <span class="text-xs text-red-400"></span>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label class="text-sm text-neutral-500" >Password</label>
+                    <input class="p-2 rounded-md border text-sm text-neutral-500" type="password"  />
+                    <span class="text-xs text-red-400"></span>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label class="text-sm text-neutral-500" >Confirm Password</label>
+                    <input class="p-2 rounded-md border text-sm text-neutral-500" type="password" />
+                    <span class="text-xs text-red-400" asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <input class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white" type="submit" value="Submit" name="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@code {
+
+}
