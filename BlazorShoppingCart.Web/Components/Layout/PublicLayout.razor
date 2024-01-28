@@ -1,21 +1,76 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="container">
-    <PublicHeader />
+<div class="container-content">
+    <div class="public-header">
+        <PublicHeader />
+    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">Public Layout</a>
-        </div>
-
-        <article class="content px-4">
+    <main class="container main-content">
             @Body
-        </article>
     </main>
+
+    <footer class="footer">
+         <div class="footer-container">
+                <div class="footer-flex footer-left">
+                    <div class="footer-about">
+                        <p>About</p>
+                            <ul>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Contact Us</a></li>
+                                <li><a href="">Terms & Conditions</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                            </ul>
+                    </div>
+                    <div class="footer-about">
+                    <p>Help</p>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                    <div class="footer-about">
+                    <p>CONSUMER POLICY</p>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                    <div class="footer-about">
+                    <p>Social</p>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="footer-flex footer-right">
+                    <div class="footer-about">
+                    <p>Mail Us</p>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                    <div class="footer-about">
+                    <p>Registered Office Address:</p>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+     </footer>
+
 </div>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
