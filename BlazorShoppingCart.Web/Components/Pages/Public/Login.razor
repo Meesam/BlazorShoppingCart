@@ -1,36 +1,47 @@
 ﻿@page "/login"
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
 
 <div class="flex h-screen justify-center items-center">
     <div class="flex flex-col bg-neutral-100 w-[30rem] h-auto p-10 rounded-lg justify-center">
         <p class="text-2xl font-semibold text-center text-neutral-500">Login</p>
-        <form asp-action="Login" method="post">
-            <div asp-validation-summary="ModelOnly"></div>
+        <EditForm OnValidSubmit="HandleLogin" Model="LoginVM">
+            <DataAnnotationsValidator />
             <div class="flex flex-col space-y-4">
                 <div class="flex flex-col space-y-1">
                     <label class="text-sm text-neutral-500">Username</label>
-                    <InputText class="p-2 rounded-md border text-sm text-neutral-500" autocomplete="off" @bind-Value="Username" />
-                    <span class="text-xs text-red-400"></span>
+                    <InputText class="p-2 rounded-md border text-sm text-neutral-500" autocomplete="off" type="email" @bind-Value="LoginVM!.Username" />
+                    <ValidationMessage class="text-xs text-red-400" For="@(() => LoginVM!.Username)" />
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label class="text-sm text-neutral-500">Password</label>
-                    <InputText class="p-2 rounded-md border text-sm text-neutral-500" autocomplete="off" @bind-Value="Password" />
-                    
-                    <span class="text-sm text-red-400"></span>
+                    <InputText class="p-2 rounded-md border text-sm text-neutral-500" autocomplete="off" type="password" @bind-Value="LoginVM!.Password" />
+                    <ValidationMessage class="text-xs text-red-400" For="@(() => LoginVM!.Password)" />
                 </div>
                 <div class="flex gap-1 items-center justify-self-start">
-                    <InputCheckbox @bind-Value="RememberMe" />
+                    <InputCheckbox @bind-Value="LoginVM!.RememberMe" />
                     <p class="text-xs text-neutral-500">RememberMe</p>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white">Login</button>
+                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white" @onclick="HandleLogin">Login</button>
                 </div>
             </div>
-        </form>
+          </EditForm>  
     </div>
 </div>
 
 @code {
-    public string Username { get; set; }=string.Empty;
-    public string Password { get; set; } = string.Empty;
-    public bool RememberMe { get; set; } = false;
+    public LoginVM? LoginVM { get; set; }
+
+    protected override void OnInitialized()
+    {
+        LoginVM = new LoginVM();
+        base.OnInitialized();
+    }
+    
+    private void HandleLogin()
+    {
+        var data = LoginVM;
+        // Navigation.NavigateTo("/register");
+    }
 }

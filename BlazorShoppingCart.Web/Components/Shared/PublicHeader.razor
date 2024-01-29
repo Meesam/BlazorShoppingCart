@@ -1,4 +1,5 @@
 ﻿@rendermode InteractiveServer
+@inject NavigationManager Navigation
 
 <div class="header-container">
      <div class="left">
@@ -37,13 +38,13 @@
                         </li>
                     </ul>
                     <div class="py-2">
-                        <NavLink class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" href="register">
+                        <NavLink @onclick="@(e=> HandleNavigate("/register"))" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer">
                              New User?
                         </NavLink>
                     </div>
 
                     <div class="py-2">
-                        <NavLink class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" href="login">
+                        <NavLink @onclick="@(e=> HandleNavigate("/login"))" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer">
                             Login
                         </NavLink>
                     </div>
@@ -62,6 +63,14 @@
   {
     isMenuOpen = !isMenuOpen;
   }
+
+  private void HandleNavigate(string path)
+  {
+        isMenuOpen = false;
+      Navigation.NavigateTo(path);
+  }
+
+
 
 }
 
