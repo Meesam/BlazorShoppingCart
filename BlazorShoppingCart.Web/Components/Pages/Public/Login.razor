@@ -1,5 +1,6 @@
 ﻿@page "/login"
 @inject NavigationManager Navigation
+@inject IUserAuth userAuth
 @rendermode InteractiveServer
 
 <div class="flex h-screen justify-center items-center">
@@ -23,7 +24,7 @@
                     <p class="text-xs text-neutral-500">RememberMe</p>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white" @onclick="HandleLogin">Login</button>
+                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white">Login</button>
                 </div>
             </div>
           </EditForm>  
@@ -38,10 +39,15 @@
         LoginVM = new LoginVM();
         base.OnInitialized();
     }
-    
-    private void HandleLogin()
+
+    private async Task HandleLogin()
     {
         var data = LoginVM;
+        var result = await userAuth.LoginUser(data);
+        if(result)
+        {
+            Navigation.NavigateTo("/register");
+        }
         // Navigation.NavigateTo("/register");
     }
 }

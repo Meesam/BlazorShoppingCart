@@ -1,5 +1,8 @@
 ﻿@page "/register"
 @rendermode InteractiveServer
+@inject IUserAuth userAuth
+@inject NavigationManager Navigation
+
 
 <div class="flex h-screen justify-center items-center">
     <div class="flex flex-col bg-neutral-100 w-[30rem] h-auto p-10 rounded-lg justify-center">
@@ -19,7 +22,7 @@
                     <InputText class="p-2 rounded-md border text-sm text-neutral-500" type="email" @bind-Value="RegisterVM!.Email" />
                     <ValidationMessage class="text-xs text-red-400" For="@(() => RegisterVM!.Email)" />
                 </div>
-                @* <div class="flex flex-col space-y-1">
+                 <div class="flex flex-col space-y-1">
                     <label class="text-sm text-neutral-500">
                         Dob
                     </label>
@@ -29,10 +32,11 @@
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                             </svg>
                         </div>
-                        <InputText @bind-Value="RegisterVM!.DateOfBirth.ToString" class="bg-white border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" />
+                        <InputDate TValue="DateTime" @bind-Value="@RegisterVM!.DateOfBirth" class="bg-white border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" Placeholder="Enter Date" />
+                        
                     </div>
                     <ValidationMessage class="text-xs text-red-400" For="@(() => RegisterVM!.DateOfBirth)" />
-                </div> *@
+                </div> 
                 <div class="flex flex-col space-y-1">
                     <label class="text-sm text-neutral-500" >Password</label>
                     <InputText class="p-2 rounded-md border text-sm text-neutral-500" type="password" @bind-Value="RegisterVM!.Password" />
@@ -44,7 +48,7 @@
                     <ValidationMessage class="text-xs text-red-400" For="@(() => RegisterVM!.ConfirmPassword)" />
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white" @onclick="HandleSubmit">Submit</button>
+                    <button class="p-4 bg-red-400 rounded-md cursor-pointer border hover:bg-red-500 text-white">Submit</button>
                 </div>
             </div>
         </EditForm>
@@ -62,8 +66,13 @@
         base.OnInitialized();
     }
 
-    private void HandleSubmit()
+    private async Task HandleSubmit()
     {
         var data = RegisterVM;
+        var result = await userAuth.RegisterUser(data);
+        if (result)
+        {
+            Navigation.NavigateTo("/login");
+        }
     }
 }

@@ -26,10 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorShoppingCart.DataAccess\BlazorShoppingCart.DataAccess.csproj" />
-    <ProjectReference Include="..\BlazorShoppingCart.EmailService\BlazorShoppingCart.EmailService.csproj" />
-    <ProjectReference Include="..\BlazorShoppingCart.Models\BlazorShoppingCart.Models.csproj" />
-    <ProjectReference Include="..\BlazorShoppingCart.PaymentService\BlazorShoppingCart.PaymentService.csproj" />
+    <ProjectReference Include="..\BlazorShoppingCart.BusinessService\BlazorShoppingCart.BusinessService.csproj" />
   </ItemGroup>
 
 </Project>

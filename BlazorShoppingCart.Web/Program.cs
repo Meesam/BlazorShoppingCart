@@ -1,3 +1,4 @@
+using BlazorShoppingCart.BusinessService.Authentication;
 using BlazorShoppingCart.DataAccess;
 using BlazorShoppingCart.Models;
 using BlazorShoppingCart.Web.Components;
@@ -17,6 +18,8 @@ builder.Services.AddDbContext<ShoppingCartContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<ShoppingCartContext>().AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IUserAuth, UserAuth>();
 
 var app = builder.Build();
 
