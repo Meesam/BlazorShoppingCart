@@ -11,6 +11,6 @@ namespace BlazorShoppingCart.BusinessService.Authentication
     public interface IUserAuth
     {
         Task<bool> RegisterUser(RegisterVM registerVM);
-        Task<object> LoginUser(LoginVM loginVM);
+        Task<LoginResponse> LoginUser(LoginVM loginVM);
     }
 }

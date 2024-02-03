@@ -44,7 +44,7 @@
     {
         var data = LoginVM;
         var result = await userAuth.LoginUser(data);
-        if(result)
+        if(result !=null)
         {
             Navigation.NavigateTo("/register");
         }

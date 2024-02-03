@@ -22,24 +22,21 @@ namespace BlazorShoppingCart.BusinessService.Authentication
             _roleManager = roleManager;
         }
 
-        public async Task<object?> LoginUser(LoginVM loginVM)
+        public async Task<LoginResponse> LoginUser(LoginVM loginVM)
         {
             if (loginVM == null) { return null; }
-            var result = await _signInManager.PasswordSignInAsync(loginVM.Username, loginVM.Password, loginVM.RememberMe, false);
-            if (result.Succeeded)
+            var user = await _userManager.FindByNameAsync(loginVM.Username);
+            var password = await _userManager.CheckPasswordAsync(user, loginVM.Password);
+            if (user != null && password)
             {
-                var user = await _userManager.FindByEmailAsync(loginVM.Username);
-                if (user != null)
+                var role = await _userManager.GetRolesAsync(user);
+                return new LoginResponse
                 {
-                    var role = await _userManager.GetRolesAsync(user);
-                    return new
-                    {
-                        UserId = user.Id,
-                        UserName = user.Name,
-                        user.Email,
-                        Role = role.FirstOrDefault()
-                    };
-                }
+                    UserId = user.Id,
+                    UserName = user.Name,
+                    Email = user.Email,
+                    Role = role.FirstOrDefault()
+                };
             }
             return null;
         }
