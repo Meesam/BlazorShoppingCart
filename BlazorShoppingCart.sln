@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.EmailSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.PaymentService", "BlazorShoppingCart.PaymentService\BlazorShoppingCart.PaymentService.csproj", "{A087BD88-E0D1-4302-B685-8D8148AF3175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShoppingCart.BusinessService", "BlazorShoppingCart.BusinessService\BlazorShoppingCart.BusinessService.csproj", "{F434B885-3989-49BB-9E14-9D731CCB880F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShoppingCart.BusinessService", "BlazorShoppingCart.BusinessService\BlazorShoppingCart.BusinessService.csproj", "{F434B885-3989-49BB-9E14-9D731CCB880F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -55,11 +55,11 @@ namespace BlazorShoppingCart.BusinessService.Authentication
                 DateOfBirth = registerVM.DateOfBirth,
             };
 
-            if (await _roleManager.RoleExistsAsync("ClientAdmin"))
+            if (await _roleManager.RoleExistsAsync("Customer"))
             {
                 var result = await _userManager.CreateAsync(user, registerVM.Password);
                 if (!result.Succeeded) { return false; }
-                var userRole = await _userManager.AddToRoleAsync(user, "ClientAdmin");
+                var userRole = await _userManager.AddToRoleAsync(user, "Customer");
                 if (!userRole.Succeeded) { return false; }
                 return true;
             }

@@ -1,5 +1,7 @@
 using BlazorShoppingCart.BusinessService.Authentication;
 using BlazorShoppingCart.DataAccess;
+using BlazorShoppingCart.EmailService.Models;
+using BlazorShoppingCart.EmailService.Services;
 using BlazorShoppingCart.Models;
 using BlazorShoppingCart.Web.Components;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +21,10 @@ builder.Services.AddDbContext<ShoppingCartContext>(options =>
 
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<ShoppingCartContext>().AddDefaultTokenProviders();
 
+var emailConfig = builder.Configuration.GetSection("EmailConfiguration")
+    .Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IUserAuth, UserAuth>();
 
 var app = builder.Build();

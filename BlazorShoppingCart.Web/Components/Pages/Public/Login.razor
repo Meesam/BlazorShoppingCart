@@ -46,8 +46,24 @@
         var result = await userAuth.LoginUser(data);
         if(result !=null)
         {
-            Navigation.NavigateTo("/register");
+            switch (result.Role)
+            {
+                case "Admin":
+                    Navigation.NavigateTo("/admin/productlist");
+                    break;
+
+                case "Customer":
+                    Navigation.NavigateTo("/customer/productlist");
+                    break;
+
+                 case "ClientAdmin":
+                    Navigation.NavigateTo("/client-admin/productlist");
+                    break;
+
+                default:
+                    Navigation.NavigateTo("/login");
+                    break;
+            }
         }
-        // Navigation.NavigateTo("/register");
     }
 }

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorShoppingCart.BusinessService\BlazorShoppingCart.BusinessService.csproj" />
+    <ProjectReference Include="..\BlazorShoppingCart.EmailService\BlazorShoppingCart.EmailService.csproj" />
   </ItemGroup>
 
 </Project>
